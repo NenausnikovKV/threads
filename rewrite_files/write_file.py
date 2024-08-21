@@ -5,7 +5,7 @@ from time import perf_counter
 
 
 class FilesWriter:
-
+    """create files and rewrite with one or many threads"""
     def __init__(self, dir_path):
         self.dir_path = dir_path
         self.dir_file_paths = self._get_dir_file_paths(self.dir_path)
@@ -48,7 +48,7 @@ class FilesWriter:
     def _get_dir_file_paths(dir_path):
         """Get file paths for class instance directory path."""
         file_paths = []
-        for (dir_path, dir_names, file_names) in os.walk(dir_path):
+        for (_, __, file_names) in os.walk(dir_path):
             for file_name in file_names:
                 file_paths.append(os.path.join(dir_path, file_name))
         return file_paths
@@ -59,10 +59,10 @@ class FilesWriter:
         Rewrite all files.
         Replace given old substring to given new substring.
         """
-        with open(file_path, "r", errors='ignore') as file:
+        with open(file_path, "r", errors='ignore', encoding="utf-8") as file:
             content = file.read()
         content = content.replace(old_substring, new_substring)
-        with open(file_path, "w", errors='ignore') as file:
+        with open(file_path, "w", errors='ignore', encoding="utf-8") as file:
             file.write(content)
 
     def _clear_dir(self):
@@ -73,7 +73,7 @@ class FilesWriter:
     def _create_files(self, file_num):
         """Create file_count files."""
         for num in range(file_num):
-            with open(os.path.join(self.dir_path, str(num)), "w") as file:
+            with open(os.path.join(self.dir_path, str(num)), "w", encoding="utf-8") as file:
                 file.write("hello")
 
 
