@@ -1,4 +1,7 @@
-"""Write files into """
+"""
+Write files using one or mane threads.
+Compare processing time.
+"""
 import os
 from threading import Thread
 from time import perf_counter
