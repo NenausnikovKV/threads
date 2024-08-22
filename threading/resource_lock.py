@@ -17,6 +17,7 @@ class Counter:
         """
         th_name = threading.current_thread().name
         print(f'Th: {th_name} - ждет блокировку')
+        # отмечаем выход из блокировки
         # pylint: disable-next=consider-using-with
         self.lock.acquire()
         try:
