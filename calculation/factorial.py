@@ -4,19 +4,19 @@ import threading
 
 
 class Factorial:
-    """Calculate factorial used one or two threads"""
+    """Calculate factorial using one or two threads"""
 
     def __init__(self, fact_num):
         self.fact_num = fact_num
 
     def one_thread_factorial(self):
-        """Get factorial used one thread"""
+        """Get factorial using one thread"""
         thread = threading.Thread(target=self._factorial)
         thread.start()
         thread.join()
 
     def two_factorials_by_two_threads(self):
-        """Get 2 factorials used two threads"""
+        """Get 2 factorials using two threads"""
         thread_1 = threading.Thread(target=self._factorial)
         thread_2 = threading.Thread(target=self._factorial)
         thread_1.start()
