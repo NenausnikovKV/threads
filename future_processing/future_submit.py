@@ -14,6 +14,7 @@ def thread_method(item_1, item_2):
     print(f"{thread_name} running")
     return s
 
+
 if __name__ == '__main__':
     with ThreadPoolExecutor() as executor:
         data = [(1, 1), (2, 2), (3, 3), (4, 4)]
