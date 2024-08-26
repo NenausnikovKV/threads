@@ -15,7 +15,7 @@ def method(item):
 # функция обратного вызова, принимает
 # только один аргумент - объект 'Future'
 def done(finished_future):
-    """todo"""
+    """method is called after future finished"""
     # с помощью атрибута мы
     # передали еще 2 аргумента
     a, b = finished_future.attribute
