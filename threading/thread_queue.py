@@ -29,22 +29,12 @@ def get_from_queue(queue):
 def queue_process():
     """Создаем очередь и извлекаем элементы из очереди в двух потоках"""
     queue = Queue()
-    # создаем поток-производитель и запускаем его
-    producer_thread = Thread(
-        target=produce_queue,
-        args=(queue,)
-    )
+    producer_thread = Thread(target=produce_queue, args=(queue, ), daemon=False)
     producer_thread.start()
-    # создаем поток-потребитель и запускаем его
-    consumer_thread = Thread(
-        target=get_from_queue,
-        args=(queue,),
-        daemon=True
-    )
+    consumer_thread = Thread(target=get_from_queue, args=(queue, ), daemon=True)
     consumer_thread.start()
-    # дожидаемся, пока все задачи добавятся в очередь
     producer_thread.join()
-    # дожидаемся, пока все задачи в очереди будут завершены
+    # wait all queue items are realised
     queue.join()
 
 
