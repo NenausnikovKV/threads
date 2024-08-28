@@ -1,4 +1,4 @@
-"""threading.event"""
+"""main_about_threading.event"""
 import threading
 import time
 

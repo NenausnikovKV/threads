@@ -29,7 +29,7 @@ def consistent_thread_processing():
 def parallel_thread_processing():
     """Run some simple thread parallel"""
     threads = []
-    for thread_num in range(10):
+    for _thread_num in range(10):
         thread = threading.Thread(target=print_thread_name)
         threads.append(thread)
         thread.start()

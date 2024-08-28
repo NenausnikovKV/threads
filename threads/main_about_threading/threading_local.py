@@ -1,4 +1,4 @@
-"""threading local"""
+"""main_about_threading local"""
 
 
 import threading
@@ -19,7 +19,7 @@ def show_value(data):
 def worker(data):
     """
     Worker with local data value.
-    Data is threading.local.
+    Data is main_about_threading.local.
     """
     name_thread = threading.current_thread().name
     show_value(data)
