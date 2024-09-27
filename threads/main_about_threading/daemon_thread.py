@@ -1,4 +1,7 @@
-"""No daemon threat"""
+"""
+Daemon thread.
+Automatically stop when the main program completes.
+"""
 
 
 from threading import Thread

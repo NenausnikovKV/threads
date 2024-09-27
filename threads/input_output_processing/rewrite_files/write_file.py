@@ -6,7 +6,7 @@ import os
 from threading import Thread
 from time import perf_counter
 
-from threads.rewrite_files.clear_files import clear_dir
+from threads.input_output_processing.rewrite_files.clear_files import clear_dir
 
 
 class FilesWriter:

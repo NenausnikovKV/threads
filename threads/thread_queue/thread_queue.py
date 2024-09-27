@@ -30,9 +30,9 @@ def queue_process():
     """Создаем очередь и извлекаем элементы из очереди в двух потоках"""
     queue = Queue()
     producer_thread = Thread(target=produce_queue, args=(queue, ), daemon=False)
-    producer_thread.start()
     consumer_thread = Thread(target=get_from_queue, args=(queue, ), daemon=True)
     consumer_thread.start()
+    producer_thread.start()
     producer_thread.join()
     # wait all queue items are realised
     queue.join()
