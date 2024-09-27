@@ -1,4 +1,5 @@
 """
+CPU processing
 Sum of unit over one or two threads.
 """
 import threading
@@ -34,10 +35,12 @@ class OneSum:
 
 if __name__ == '__main__':
     one_sum = OneSum(100000000)
+    # single thread
     start_time = time.perf_counter()
     one_sum.one_thread_sum()
     end_time = time.perf_counter()
     print(f"One thread processing time is {end_time - start_time:0.2f} seconds")
+    # multi thread
     start_time = time.perf_counter()
     one_sum.two_thread_sum()
     end_time = time.perf_counter()

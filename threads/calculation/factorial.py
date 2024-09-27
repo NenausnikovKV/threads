@@ -1,4 +1,4 @@
-"""Check threat for """
+"""Check threat for"""
 import time
 import threading
 
@@ -45,4 +45,4 @@ if __name__ == '__main__':
     start_time = time.perf_counter()
     factorial.two_factorials_by_two_threads()
     end_time = time.perf_counter()
-    print(f"Two thread processing time is {start_time - end_time:0.2f} seconds")
+    print(f"Two thread processing time is {end_time - start_time:0.2f} seconds")

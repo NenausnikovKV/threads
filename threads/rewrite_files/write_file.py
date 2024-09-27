@@ -6,6 +6,8 @@ import os
 from threading import Thread
 from time import perf_counter
 
+from threads.rewrite_files.clear_files import clear_dir
+
 
 class FilesWriter:
     """create files and rewrite with one or many threads"""
@@ -82,18 +84,24 @@ class FilesWriter:
 
 if __name__ == '__main__':
     writer = FilesWriter(dir_path="files")
+
     # create files
     start_time = perf_counter()
-    writer.upgrade_dir(file_num=30000)
+    writer.upgrade_dir(file_num=1000)
     end_time = perf_counter()
     print(f'Обновление файлов заняло {end_time - start_time:0.2f} секунд.')
+
     # single thread processing
     start_time = perf_counter()
     writer.single_thread_file_replacing("hello", "goodbye")
     end_time = perf_counter()
     print(f'Обработка одним потоком заняло {end_time - start_time:0.2f} секунд.')
+
     # multi thread processing
     start_time = perf_counter()
     writer.multi_thread_file_replacing("goodbye", "hello")
     end_time = perf_counter()
     print(f'Выполнение несколькими потоками заняло {end_time-start_time:0.2f} секунд.')
+
+    # clear dir
+    clear_dir(dir_path="files")
