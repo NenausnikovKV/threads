@@ -32,6 +32,6 @@ if __name__ == '__main__':
     t1.start()
     t2.start()
     print('Ожидание перед вызовом Event.set()')
-    time.sleep(5)
+    time.sleep(8)
     event.set()
     print('Установлено событие в основном потоке')
