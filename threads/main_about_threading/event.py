@@ -28,8 +28,8 @@ if __name__ == '__main__':
     # установка глобального события
     event = threading.Event()
     t1 = threading.Thread(name='blocking', target=wait_event)
-    t1.start()
     t2 = threading.Thread(name='non-blocking', target=wait_timeout, args=(2,))
+    t1.start()
     t2.start()
     print('Ожидание перед вызовом Event.set()')
     time.sleep(5)
